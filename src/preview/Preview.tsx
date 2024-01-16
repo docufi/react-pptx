@@ -35,19 +35,70 @@ const normalizeBorderToCSS = (style: InternalTableStyle) =>
       : undefined ?? "transparent"
   }`;
 
-const SlideObjectShape = ({ shape }: { shape: InternalShape }) => {
+const SlideObjectShape = ({
+  shape,
+  dimensions,
+  slideWidth,
+}: {
+  shape: InternalShape;
+  dimensions: [number, number];
+  slideWidth: number;
+}) => {
   const baseStyle = {
     width: "100%",
     height: "100%",
     backgroundColor: shape.style.backgroundColor
       ? normalizedColorToCSS(shape.style.backgroundColor)
       : undefined,
+    borderColor: shape.style.borderColor
+      ? normalizedColorToCSS(shape.style.borderColor)
+      : undefined,
+    borderWidth: shape.style.borderWidth ?? 0,
+    borderStyle:
+      shape.style.borderStyle === "dash"
+        ? "dashed"
+        : shape.style.borderStyle === "sysDot"
+        ? "dotted"
+        : "solid",
   };
 
+  const internalText =
+    shape.text && shape.text.length > 0 ? (
+      <div
+        style={{
+          ...getTextStyleForPart(shape.style, dimensions, slideWidth),
+          height: "100%",
+          display: "flex",
+          justifyContent:
+            shape.style.align === "left"
+              ? "flex-start"
+              : shape.style.align === "right"
+              ? "flex-end"
+              : "center",
+          alignItems:
+            shape.style.verticalAlign === "top"
+              ? "flex-start"
+              : shape.style.verticalAlign === "bottom"
+              ? "flex-end"
+              : "center",
+        }}
+      >
+        <TextPreview
+          parts={shape.text}
+          subscript={false}
+          superscript={false}
+          dimensions={dimensions}
+          slideWidth={slideWidth}
+        />
+      </div>
+    ) : null;
+
   if (shape.type === "rect") {
-    return <div style={baseStyle} />;
+    return <div style={baseStyle}>{internalText}</div>;
   } else if (shape.type === "ellipse") {
-    return <div style={{ ...baseStyle, borderRadius: "100%" }} />;
+    return (
+      <div style={{ ...baseStyle, borderRadius: "100%" }}>{internalText}</div>
+    );
   } else {
     return (
       <div
@@ -411,7 +462,11 @@ const SlideObjectPreview = ({
           </tbody>
         </table>
       ) : (
-        <SlideObjectShape shape={object as InternalShape} />
+        <SlideObjectShape
+          shape={object as InternalShape}
+          dimensions={dimensions}
+          slideWidth={slideWidth}
+        />
       )}
     </div>
   );

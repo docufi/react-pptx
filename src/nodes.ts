@@ -135,6 +135,10 @@ export type ShapeProps = VisualBaseProps & {
     backgroundColor?: string;
     borderWidth?: number;
     borderColor?: string;
+    borderStyle?: PptxGenJs.ShapeLineProps["dashType"];
+  } & {
+    align?: InternalText["style"]["align"];
+    verticalAlign?: InternalText["style"]["verticalAlign"];
   };
 };
 export const Shape: React.FC<ShapeProps> =

@@ -113,6 +113,9 @@ export type InternalShape = ObjectBase & {
     backgroundColor: HexColor | ComplexColor | null;
     borderColor: HexColor | null;
     borderWidth: number | null;
+    borderStyle: PptxGenJs.ShapeLineProps["dashType"] | null;
+    align: "left" | "right" | "center";
+    verticalAlign: "top" | "bottom" | "middle";
   };
 };
 export type InternalTableStyle = {
@@ -427,6 +430,9 @@ const normalizeSlideObject = (
           ? normalizeHexColor(node.props.style.borderColor)
           : null,
         borderWidth: node.props.style.borderWidth ?? null,
+        borderStyle: node.props.style.borderStyle ?? null,
+        align: node.props.style.align ?? "center",
+        verticalAlign: node.props.style.verticalAlign ?? "middle",
       },
     };
   } else if (isTable(node)) {

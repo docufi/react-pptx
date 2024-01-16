@@ -130,9 +130,12 @@ const renderSlideObject = async (
         w,
         h,
         fill: backgroundColor,
+        align: style.align ?? undefined,
+        valign: style.verticalAlign ?? undefined,
         line: {
           size: style.borderWidth ?? undefined,
           color: style.borderColor ?? undefined,
+          dashType: style.borderStyle ?? undefined,
         },
         breakLine: true,
       });
@@ -146,6 +149,7 @@ const renderSlideObject = async (
         line: {
           size: style.borderWidth ?? undefined,
           color: style.borderColor ?? undefined,
+          dashType: style.borderStyle ?? undefined,
         },
       });
     }
