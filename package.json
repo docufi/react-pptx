@@ -1,8 +1,8 @@
 {
-  "name": "react-pptx",
+  "name": "@docufi/react-pptx",
   "description": "Render JSX to a .pptx file",
   "version": "0.0.0-development",
-  "repository": "github:wyozi/react-pptx",
+  "repository": "github:docufi/react-pptx",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "license": "MIT",
