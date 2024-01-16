@@ -140,6 +140,7 @@ export type ShapeProps = VisualBaseProps & {
     borderWidth?: number;
     borderColor?: string;
     borderStyle?: PptxGenJs.ShapeLineProps["dashType"];
+    rotate?: number;
   } & {
     align?: InternalText["style"]["align"];
     verticalAlign?: InternalText["style"]["verticalAlign"];

@@ -60,6 +60,9 @@ const SlideObjectShape = ({
         : shape.style.borderStyle === "sysDot"
         ? "dotted"
         : "solid",
+    transform: shape.style.rotate
+      ? `rotate(${shape.style.rotate}deg)`
+      : undefined,
   };
 
   const internalText =

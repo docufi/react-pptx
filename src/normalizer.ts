@@ -122,6 +122,7 @@ export type InternalShape = ObjectBase & {
     verticalAlign: "top" | "bottom" | "middle";
     fontSize: number;
     fontFace: string;
+    rotate: number;
   };
 };
 export type InternalTableStyle = {
@@ -441,6 +442,7 @@ const normalizeSlideObject = (
         verticalAlign: node.props.style.verticalAlign ?? "middle",
         fontFace: node.props.style.fontFace ?? DEFAULT_FONT_FACE,
         fontSize: node.props.style.fontSize ?? DEFAULT_FONT_SIZE,
+        rotate: node.props.style.rotate ?? 0,
       },
     };
   } else if (isTable(node)) {

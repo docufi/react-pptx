@@ -152,6 +152,7 @@ const renderSlideObject = async (
           color: style.borderColor ?? undefined,
           dashType: style.borderStyle ?? undefined,
         },
+        rotate: style.rotate ?? undefined,
         breakLine: true,
       });
     } else {
@@ -161,6 +162,7 @@ const renderSlideObject = async (
         w,
         h,
         fill: backgroundColor,
+        rotate: style.rotate ?? undefined,
         line: {
           size: style.borderWidth ?? undefined,
           color: style.borderColor ?? undefined,
