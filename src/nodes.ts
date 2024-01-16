@@ -139,6 +139,9 @@ export type ShapeProps = VisualBaseProps & {
   } & {
     align?: InternalText["style"]["align"];
     verticalAlign?: InternalText["style"]["verticalAlign"];
+  } & {
+    fontFace?: InternalText["style"]["fontFace"];
+    fontSize?: InternalText["style"]["fontSize"];
   };
 };
 export const Shape: React.FC<ShapeProps> =

@@ -93,13 +93,26 @@ const renderSlideObject = async (
 
   const { x, y, w, h } = object.style;
   if (object.kind === "text") {
-    const { color, verticalAlign, backgroundColor, ...style } = object.style;
+    const {
+      color,
+      verticalAlign,
+      backgroundColor,
+      borderColor,
+      borderWidth,
+      borderStyle,
+      ...style
+    } = object.style;
     slide.addText(renderTextParts(object.text), {
       ...style,
       fill: normalizedColorToPptxgenShapeFill(backgroundColor),
       color: color ?? undefined,
       valign: verticalAlign,
       breakLine: true,
+      line: {
+        color: borderColor ?? undefined,
+        dashType: borderStyle ?? undefined,
+        width: borderWidth ?? undefined,
+      },
     });
   } else if (object.kind === "image") {
     const { data, sizing } = await processImageData(object);
@@ -132,6 +145,8 @@ const renderSlideObject = async (
         fill: backgroundColor,
         align: style.align ?? undefined,
         valign: style.verticalAlign ?? undefined,
+        fontFace: style.fontFace ?? undefined,
+        fontSize: style.fontSize ?? undefined,
         line: {
           size: style.borderWidth ?? undefined,
           color: style.borderColor ?? undefined,

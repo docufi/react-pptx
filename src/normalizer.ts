@@ -92,6 +92,10 @@ export type InternalText = ObjectBase & {
   style: InternalTextPartBaseStyle & {
     align?: "left" | "right" | "center";
     verticalAlign?: "top" | "bottom" | "middle";
+  } & {
+    borderColor?: HexColor | null;
+    borderWidth?: number | null;
+    borderStyle?: PptxGenJs.ShapeLineProps["dashType"] | null;
   };
 };
 export type InternalImage = ObjectBase & {
@@ -116,6 +120,8 @@ export type InternalShape = ObjectBase & {
     borderStyle: PptxGenJs.ShapeLineProps["dashType"] | null;
     align: "left" | "right" | "center";
     verticalAlign: "top" | "bottom" | "middle";
+    fontSize: number;
+    fontFace: string;
   };
 };
 export type InternalTableStyle = {
@@ -433,6 +439,8 @@ const normalizeSlideObject = (
         borderStyle: node.props.style.borderStyle ?? null,
         align: node.props.style.align ?? "center",
         verticalAlign: node.props.style.verticalAlign ?? "middle",
+        fontFace: node.props.style.fontFace ?? DEFAULT_FONT_FACE,
+        fontSize: node.props.style.fontSize ?? DEFAULT_FONT_SIZE,
       },
     };
   } else if (isTable(node)) {

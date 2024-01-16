@@ -395,6 +395,16 @@ const SlideObjectPreview = ({
             display: "flex",
             textAlign: object.style.align,
             justifyContent: object.style.align,
+            borderColor: object.style.borderColor
+              ? normalizedColorToCSS(object.style.borderColor)
+              : undefined,
+            borderWidth: object.style.borderWidth ?? 0,
+            borderStyle:
+              object.style.borderStyle === "dash"
+                ? "dashed"
+                : object.style.borderStyle === "sysDot"
+                ? "dotted"
+                : "solid",
           }}
         >
           <TextPreview
