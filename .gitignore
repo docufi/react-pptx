@@ -4,3 +4,4 @@ preview
 !src/preview
 test.pptx
 .npmrc
+pages/.DS_Store
