@@ -84,6 +84,10 @@ export type TextProps = TextNodeBaseProps & {
     TextNodeBaseStyle & {
       align?: InternalText["style"]["align"];
       verticalAlign?: InternalText["style"]["verticalAlign"];
+    } & {
+      borderWidth?: number;
+      borderColor?: string;
+      borderStyle?: PptxGenJs.ShapeLineProps["dashType"];
     };
 };
 const TextFn: React.FC<TextProps> = () => null;
