@@ -81,6 +81,7 @@ const SlideObjectShape = ({
               : shape.style.verticalAlign === "bottom"
               ? "flex-end"
               : "center",
+          borderRadius: "inherit",
         }}
       >
         <TextPreview
