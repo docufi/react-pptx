@@ -233,8 +233,16 @@ const renderSlide = async (
     slide.addNotes(node.notes);
   }
 
+  await Promise.all(
+    node.objects
+      .filter((object) => object.kind === "image")
+      .map(async (object) => renderSlideObject(pres, slide, object))
+  );
+
   return Promise.all(
-    node.objects.map((object) => renderSlideObject(pres, slide, object))
+    node.objects
+      .filter((object) => object.kind !== "image")
+      .map((object) => renderSlideObject(pres, slide, object))
   );
 };
 
