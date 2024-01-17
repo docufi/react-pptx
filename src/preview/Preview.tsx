@@ -200,7 +200,7 @@ const getTextStyleForPart = (
       : undefined,
     transform: style.rotate ? `rotate(${style.rotate}deg)` : undefined,
     alignItems: verticalAlign,
-    verticalAlign,
+    verticalAlign: style.verticalAlign,
     backgroundColor: style.backgroundColor
       ? normalizedColorToCSS(style.backgroundColor)
       : undefined,
