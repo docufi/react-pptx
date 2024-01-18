@@ -54,7 +54,7 @@ const SlideObjectShape = ({
       ? normalizedColorToCSS(shape.style.borderColor)
       : undefined,
     borderWidth: shape.style.borderWidth ?? 0,
-    borderRadius: shape.style.borderRadius ?? 0,
+    borderRadius: shape.style.borderRadius ? shape.style.borderRadius * 100 : 0,
     borderStyle:
       shape.style.borderStyle === "dash"
         ? "dashed"
@@ -98,7 +98,7 @@ const SlideObjectShape = ({
       </div>
     ) : null;
 
-  if (shape.type === "rect") {
+  if (shape.type === "rect" || shape.type === "roundRect") {
     return <div style={baseStyle}>{internalText}</div>;
   } else if (shape.type === "ellipse") {
     return (
