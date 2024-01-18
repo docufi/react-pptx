@@ -54,6 +54,7 @@ const SlideObjectShape = ({
       ? normalizedColorToCSS(shape.style.borderColor)
       : undefined,
     borderWidth: shape.style.borderWidth ?? 0,
+    borderRadius: shape.style.borderRadius ?? 0,
     borderStyle:
       shape.style.borderStyle === "dash"
         ? "dashed"
@@ -382,6 +383,7 @@ const SlideObjectPreview = ({
               ? normalizedColorToCSS(object.style.borderColor)
               : undefined,
             borderWidth: object.style.borderWidth ?? 0,
+            borderRadius: object.style.borderRadius ?? 0,
             borderStyle:
               object.style.borderStyle === "dash"
                 ? "dashed"

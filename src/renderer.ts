@@ -100,6 +100,7 @@ const renderSlideObject = async (
       borderColor,
       borderWidth,
       borderStyle,
+      borderRadius,
       ...style
     } = object.style;
     slide.addText(renderTextParts(object.text), {
@@ -108,6 +109,7 @@ const renderSlideObject = async (
       color: color ?? undefined,
       valign: verticalAlign,
       breakLine: true,
+      rectRadius: borderRadius ?? undefined,
       line: {
         color: borderColor ?? undefined,
         dashType: borderStyle ?? undefined,
@@ -152,6 +154,7 @@ const renderSlideObject = async (
           color: style.borderColor ?? undefined,
           dashType: style.borderStyle ?? undefined,
         },
+        rectRadius: style.borderRadius ?? undefined,
         rotate: style.rotate ?? undefined,
         breakLine: true,
       });
@@ -163,6 +166,7 @@ const renderSlideObject = async (
         h,
         fill: backgroundColor,
         rotate: style.rotate ?? undefined,
+        rectRadius: style.borderRadius ?? undefined,
         line: {
           size: style.borderWidth ?? undefined,
           color: style.borderColor ?? undefined,

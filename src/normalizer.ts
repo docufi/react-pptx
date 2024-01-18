@@ -96,6 +96,7 @@ export type InternalText = ObjectBase & {
     borderColor?: HexColor | null;
     borderWidth?: number | null;
     borderStyle?: PptxGenJs.ShapeLineProps["dashType"] | null;
+    borderRadius?: number;
   };
 };
 export type InternalImage = ObjectBase & {
@@ -118,6 +119,7 @@ export type InternalShape = ObjectBase & {
     borderColor: HexColor | null;
     borderWidth: number | null;
     borderStyle: PptxGenJs.ShapeLineProps["dashType"] | null;
+    borderRadius?: number;
     align: "left" | "right" | "center";
     verticalAlign: "top" | "bottom" | "middle";
     fontSize: number;
@@ -438,6 +440,7 @@ const normalizeSlideObject = (
           : null,
         borderWidth: node.props.style.borderWidth ?? null,
         borderStyle: node.props.style.borderStyle ?? null,
+        borderRadius: node.props.style.borderRadius ?? 0,
         align: node.props.style.align ?? "center",
         verticalAlign: node.props.style.verticalAlign ?? "middle",
         fontFace: node.props.style.fontFace ?? DEFAULT_FONT_FACE,

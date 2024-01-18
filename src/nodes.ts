@@ -85,6 +85,7 @@ export type TextProps = TextNodeBaseProps & {
       align?: InternalText["style"]["align"];
       verticalAlign?: InternalText["style"]["verticalAlign"];
     } & {
+      borderRadius?: number;
       borderWidth?: number;
       borderColor?: string;
       borderStyle?: PptxGenJs.ShapeLineProps["dashType"];
@@ -138,6 +139,7 @@ export type ShapeProps = VisualBaseProps & {
   style?: {
     backgroundColor?: string;
     borderWidth?: number;
+    borderRadius?: number;
     borderColor?: string;
     borderStyle?: PptxGenJs.ShapeLineProps["dashType"];
     rotate?: number;
