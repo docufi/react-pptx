@@ -104,29 +104,7 @@ const SlideObjectShape = ({
       <div style={{ ...baseStyle, borderRadius: "100%" }}>{internalText}</div>
     );
   } else {
-    return (
-      <div
-        style={{
-          ...baseStyle,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            background: `rgba(0, 0, 0, 0) repeating-linear-gradient(45deg, yellow,  yellow 10px, black 10px, black 20px) repeat scroll 0% 0%`,
-            padding: 5,
-            textAlign: "center",
-          }}
-        >
-          <span style={{ backgroundColor: "white", padding: 2 }}>
-            no preview for "{shape.type}"
-          </span>
-        </div>
-      </div>
-    );
+    return null;
   }
 };
 
