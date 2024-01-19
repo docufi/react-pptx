@@ -104,6 +104,8 @@ const SlideObjectShape = ({
     return (
       <div style={{ ...baseStyle, borderRadius: "100%" }}>{internalText}</div>
     );
+  } else if (shape.type === "line") {
+    return <div style={{ ...baseStyle }}></div>;
   } else {
     return null;
   }
@@ -183,6 +185,8 @@ const getTextStyleForPart = (
     backgroundColor: style.backgroundColor
       ? normalizedColorToCSS(style.backgroundColor)
       : undefined,
+    listStyleType: "disc",
+    listStylePosition: "inside",
   };
 };
 
