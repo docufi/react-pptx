@@ -98,7 +98,11 @@ const SlideObjectShape = ({
       </div>
     ) : null;
 
-  if (shape.type === "rect" || shape.type === "roundRect") {
+  if (
+    shape.type === "rect" ||
+    shape.type === "roundRect" ||
+    shape.type === "notchedRightArrow"
+  ) {
     return <div style={baseStyle}>{internalText}</div>;
   } else if (shape.type === "ellipse") {
     return (
