@@ -190,7 +190,8 @@ const getTextStyleForPart = (
       ? normalizedColorToCSS(style.backgroundColor)
       : undefined,
     listStyleType: "disc",
-    listStylePosition: "inside",
+    listStylePosition: "outside",
+    marginLeft: style.indent ? `${pointsToPx(style.indent)}px` : undefined,
   };
 };
 
