@@ -192,6 +192,7 @@ const getTextStyleForPart = (
     listStyleType: "disc",
     listStylePosition: "outside",
     marginLeft: style.indent ? `${pointsToPx(style.indent)}px` : undefined,
+    display: style.display ? style.display : undefined,
   };
 };
 
