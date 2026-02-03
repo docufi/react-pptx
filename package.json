@@ -1,12 +1,8 @@
 {
-  "name": "@docufi/react-pptx",
-  "description": "Render JSX to a .pptx file",
+  "name": "docufi-react-pptx",
+  "description": "Render JSX to a .pptx file (docufi fork)",
   "version": "0.1.13",
   "repository": "github:docufi/react-pptx",
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org/"
-  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "license": "MIT",
